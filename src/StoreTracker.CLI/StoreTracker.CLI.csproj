@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FCB18341-4217-41ED-88D8-5D29B4350281}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>StoreTracker.CLI</RootNamespace>
+    <AssemblyName>StoreTracker.CLI</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EasyConsole, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyConsole.1.1.0\lib\net452\EasyConsole.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConsoleNotificationService.cs" />
+    <Compile Include="ConsoleStoreProvider.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StoreTracker.Business\StoreTracker.Business.csproj">
+      <Project>{3A4C5393-AB87-4BA6-8304-166967898087}</Project>
+      <Name>StoreTracker.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreTracker.Core\StoreTracker.Core.csproj">
+      <Project>{AFDAD33B-3AC1-42D4-AB6E-413A353FD34A}</Project>
+      <Name>StoreTracker.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreTracker.Data.Csv\StoreTracker.Data.Csv.csproj">
+      <Project>{81221B03-B334-4180-8471-14885F3680BB}</Project>
+      <Name>StoreTracker.Data.Csv</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreTracker.Data.Memory\StoreTracker.Data.Memory.csproj">
+      <Project>{B86CFEC8-9415-42FB-85D6-434EC534C94D}</Project>
+      <Name>StoreTracker.Data.Memory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreTracker.Infrastructure\StoreTracker.Infrastructure.csproj">
+      <Project>{35E4645B-FE41-49A8-8E57-17FF3F00B3A2}</Project>
+      <Name>StoreTracker.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
